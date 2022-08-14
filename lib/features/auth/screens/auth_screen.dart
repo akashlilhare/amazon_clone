@@ -2,9 +2,10 @@
 
 import 'package:flutter/material.dart';
 
-import '../../common/custom_button.dart';
-import '../../common/custom_textfield.dart';
-import '../../constatns/global_varibales.dart';
+import '../../../common/custom_button.dart';
+import '../../../common/custom_textfield.dart';
+import '../../../constatns/global_varibales.dart';
+import '../services/auth_service.dart';
 
 
 enum Auth {
@@ -20,7 +21,9 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
-  Auth _auth =Auth.signUp;
+  Auth _auth = Auth.signUp;
+  final AuthService authService = AuthService();
+
   final _signUpFormKey = GlobalKey<FormState>();
   final _signInFormKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
@@ -34,6 +37,23 @@ class _AuthScreenState extends State<AuthScreen> {
     _passwordController.dispose();
     _nameController.dispose();
   }
+
+  void signUpUser() {
+    authService.signUpUser(
+        context: context,
+        email: _emailController.text,
+        password: _passwordController.text,
+        name: _nameController.text);
+  }
+
+  void signInUser() {
+    authService.loginUser(
+      context: context,
+      email: _emailController.text,
+      password: _passwordController.text,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,7 +119,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           text: 'Sign Up',
                           onTap: () {
                             if (_signUpFormKey.currentState!.validate()) {
-                            //  signUpUser();
+                              signUpUser();
                             }
                           },
                         )
@@ -150,7 +170,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           text: 'Sign In',
                           onTap: () {
                             if (_signInFormKey.currentState!.validate()) {
-                           //   signInUser();
+                              signInUser();
                             }
                           },
                         )

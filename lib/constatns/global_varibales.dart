@@ -1,15 +1,32 @@
 import 'package:flutter/material.dart';
 
-String uri = 'http://<yourip>:3000';
+String baseUrl = 'http://192.168.4.227:3000';
 
 class GlobalVariables {
   // COLORS
-  static const appBarGradient = LinearGradient(
+  static LinearGradient appBarGradient({required double opacity}) => LinearGradient(
+    begin: Alignment.topRight,
+    end: Alignment.bottomLeft,
     colors: [
+
+      Color(0xff146eb4).withOpacity(opacity),
+      Color(0xffff9900).withOpacity(opacity),
+
+    ],
+    stops: [0.5, 1.0],
+
+  );
+
+  static     LinearGradient secondaryGradient = LinearGradient(
+    begin: Alignment.topRight,
+    end: Alignment.bottomLeft,
+    colors: [
+
       Color.fromARGB(255, 29, 201, 192),
       Color.fromARGB(255, 125, 221, 216),
     ],
-    stops: [0.5, 1.0],
+    stops: [ 0.5, 1.0],
+
   );
 
   static const secondaryColor = Color.fromRGBO(255, 153, 0, 1);
