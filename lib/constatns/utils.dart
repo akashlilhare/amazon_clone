@@ -25,3 +25,12 @@ Future<List<File>> pickImages() async {
   }
   return images;
 }
+
+
+String getPrice({required double price}) {
+  int convertedPrice = (price).ceil();
+
+  String parsedCurrency = "₹$convertedPrice";
+  String parsedPrice = parsedCurrency.replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},');
+  return parsedPrice;
+}

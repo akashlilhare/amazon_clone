@@ -74,15 +74,13 @@ class AuthService {
         response: res,
         context: context,
         onSuccess: () async {
-          log("cp0");
           SharedPreferences prefs = await SharedPreferences.getInstance();
           Provider.of<UserProvider>(context, listen: false).setUser(res.body);
-          log("cp1");
+
           await prefs.setString("x-auth-token", jsonDecode(res.body)["token"]);
-          log("cp2");
+
           Navigator.pushNamedAndRemoveUntil(
               context, HomeScreen.routeName, (route) => false);
-          log("cp3");
         },
       );
     } catch (e) {

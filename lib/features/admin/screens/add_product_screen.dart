@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:carousel_slider/carousel_slider.dart';
@@ -8,6 +9,7 @@ import '../../../common/custom_button.dart';
 import '../../../common/custom_textfield.dart';
 import '../../../constatns/global_varibales.dart';
 import '../../../constatns/utils.dart';
+import '../services/admin_services.dart';
 
 class AddProductScreen extends StatefulWidget {
   static const String routeName = '/add-product';
@@ -24,12 +26,13 @@ class _AddProductScreenState extends State<AddProductScreen> {
   final TextEditingController priceController = TextEditingController();
   final TextEditingController quantityController = TextEditingController();
 
-  //final AdminServices adminServices = AdminServices();
+  final AdminServices adminServices = AdminServices();
 
   String? category;
 
   List<File> images = [];
   final _addProductFormKey = GlobalKey<FormState>();
+  bool isLoading = false;
 
   @override
   void dispose() {
@@ -49,17 +52,23 @@ class _AddProductScreenState extends State<AddProductScreen> {
     'Other'
   ];
 
-  void sellProduct() {
+   sellProduct() async{
     if (_addProductFormKey.currentState!.validate() && images.isNotEmpty) {
-      // adminServices.sellProduct(
-      //   context: context,
-      //   name: productNameController.text,
-      //   description: descriptionController.text,
-      //   price: double.parse(priceController.text),
-      //   quantity: double.parse(quantityController.text),
-      //   category: category,
-      //   images: images,
-      // );
+      setState(() {
+        isLoading  = true;
+      });
+    await  adminServices.sellProduct(
+        context: context,
+        name: productNameController.text,
+        description: descriptionController.text,
+        price: double.parse(priceController.text),
+        quantity: double.parse(quantityController.text),
+        category: category ??"Other",
+        images: images,
+      );
+      setState(() {
+        isLoading  = false;
+      });
     }
   }
 
@@ -75,9 +84,10 @@ class _AddProductScreenState extends State<AddProductScreen> {
     return Scaffold(
       bottomNavigationBar: Padding(
         padding: EdgeInsets.only(left: 16, right: 16, bottom: 12, top: 8),
-        child: CustomButton(
-          text: 'Sell',
-          onTap: sellProduct,
+        child: ElevatedButton(
+          child:isLoading?  CircularProgressIndicator(color: Colors.black,strokeWidth: 2,): const Text( 'Sell Product',style: TextStyle(color: Colors.black),),
+          onPressed: sellProduct,
+          style: ElevatedButton.styleFrom(minimumSize: Size(50,50)),
         ),
       ),
       appBar: PreferredSize(
@@ -169,11 +179,13 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 ),
                 const SizedBox(height: 10),
                 CustomTextField(
+                  inputType: TextInputType.number,
                   controller: priceController,
                   hintText: 'Price',
                 ),
                 const SizedBox(height: 10),
                 CustomTextField(
+                  inputType: TextInputType.number,
                   controller: quantityController,
                   hintText: 'Quantity',
                 ),

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../constatns/global_varibales.dart';
-import '../../providers/user_provider.dart';
+import '../../../constatns/global_varibales.dart';
+import '../../../providers/user_provider.dart';
+
+
 
 class AddressBox extends StatelessWidget {
   const AddressBox({Key? key}) : super(key: key);
