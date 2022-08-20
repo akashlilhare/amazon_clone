@@ -4,8 +4,7 @@
   "main": "index.js",
   "description": "Node Sever for Amazon Clone",
   "scripts": {
-    "start": "node ../server/index.js",
-    "dev": "node ../server/index.js"
+    "start": "node index.js",
   },
   "author": "",
   "license": "ISC",

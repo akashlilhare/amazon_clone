@@ -6,10 +6,10 @@ dotenv.config();
 
 
 // IMPORTS FROM OTHER FILES
-const authRouter = require("./routes/auth");
-const adminRouter = require("./routes/admin");
-const productRouter = require("./routes/product");
-const userRouter = require("./routes/user");
+const authRouter = require("./server/routes/auth");
+const adminRouter = require("./server/routes/admin");
+const productRouter = require("./server/routes/product");
+const userRouter = require("./server/routes/user");
 
 
 //INIT
