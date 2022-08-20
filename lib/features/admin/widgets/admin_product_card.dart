@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../constatns/utils.dart';
-import '../../../users/product.dart';
+import '../../../models/product.dart';
 
 class AdminProductCard extends StatelessWidget {
   final Product product;

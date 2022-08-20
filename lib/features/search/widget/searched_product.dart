@@ -1,7 +1,10 @@
 
+import 'package:amazon_clone/constatns/utils.dart';
 import 'package:flutter/material.dart';
 
-import '../../../users/product.dart';
+import '../../../common/stars.dart';
+import '../../../models/product.dart';
+
 
 class SearchedProduct extends StatelessWidget {
   final Product product;
@@ -13,13 +16,13 @@ class SearchedProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double totalRating = 0;
-    // for (int i = 0; i < product.rating!.length; i++) {
-    //   totalRating += product.rating![i].rating;
-    // }
-    // double avgRating = 0;
-    // if (totalRating != 0) {
-    //   avgRating = totalRating / product.rating!.length;
-    // }
+    for (int i = 0; i < product.ratings!.length; i++) {
+      totalRating += product.ratings![i].rating;
+    }
+    double avgRating = 0;
+    if (totalRating != 0) {
+      avgRating = totalRating / product.ratings!.length;
+    }
     return Column(
       children: [
         Container(
@@ -33,7 +36,7 @@ class SearchedProduct extends StatelessWidget {
                 fit: BoxFit.contain,
                 height: 135,
                 width: 135,
-              ),
+              ),Container(width: 1,color:Colors.grey.withOpacity(.1),height: 135,),
               Column(
                 children: [
                   Container(
@@ -50,18 +53,18 @@ class SearchedProduct extends StatelessWidget {
                   Container(
                     width: 235,
                     padding: const EdgeInsets.only(left: 10, top: 5),
-                    // child: Stars(
-                    //   rating: avgRating,
-                    // ),
+                    child: Stars(
+                      rating: avgRating,
+                    ),
                   ),
                   Container(
                     width: 235,
                     padding: const EdgeInsets.only(left: 10, top: 5),
                     child: Text(
-                      '\$${product.price}',
+                      getPrice(price: product.price),
                       style: const TextStyle(
                         fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w500,
                       ),
                       maxLines: 2,
                     ),
@@ -87,7 +90,9 @@ class SearchedProduct extends StatelessWidget {
             ],
           ),
         ),
-      ],
+         Container(height: 1,color: Colors.grey.withOpacity(.1),),
+
+    ],
     );
   }
 }

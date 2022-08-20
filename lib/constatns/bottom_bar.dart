@@ -1,4 +1,5 @@
 
+import 'package:amazon_clone/features/cart/screens/cart_screen.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -24,8 +25,8 @@ class _BottomBarState extends State<BottomBar> {
   List<Widget> pages = [
     const HomeScreen(),
     const AccountScreen(),
-    Center(child: Text("cart"),),
-    // const CartScreen(),
+ const   CartScreen(),
+
   ];
 
   void updatePage(int page) {
@@ -36,7 +37,7 @@ class _BottomBarState extends State<BottomBar> {
 
   @override
   Widget build(BuildContext context) {
- //   final userCartLen = context.watch<UserProvider>().user.cart.length;
+   final userCartLen = context.watch<UserProvider>().user.cart.length;
 
     return Scaffold(
       body: pages[_page],
@@ -104,7 +105,7 @@ class _BottomBarState extends State<BottomBar> {
               ),
               child: Badge(
                 elevation: 0,
-                badgeContent: Text("2",style: TextStyle(color: Colors.white),),
+                badgeContent: Text(userCartLen.toString(),style: TextStyle(color: Colors.white),),
                 badgeColor: GlobalVariables.selectedNavBarColor,
                 padding: EdgeInsets.all(6),
                 child: const Icon(

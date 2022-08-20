@@ -7,8 +7,8 @@ import 'package:http/http.dart' as http;
 
 import '../../../constatns/error_handling.dart';
 import '../../../constatns/utils.dart';
+import '../../../models/product.dart';
 import '../../../providers/user_provider.dart';
-import '../../../users/product.dart';
 
 class SearchServices {
   Future<List<Product>> fetchSearchedProduct({

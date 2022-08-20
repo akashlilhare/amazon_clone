@@ -1,13 +1,15 @@
 import 'dart:convert';
-import 'package:amazon_clone_tutorial/constants/error_handling.dart';
-import 'package:amazon_clone_tutorial/constants/global_variables.dart';
-import 'package:amazon_clone_tutorial/constants/utils.dart';
-import 'package:amazon_clone_tutorial/models/product.dart';
-import 'package:amazon_clone_tutorial/models/user.dart';
-import 'package:amazon_clone_tutorial/providers/user_provider.dart';
+
+import 'package:amazon_clone/constatns/global_varibales.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
+
+import '../../../constatns/error_handling.dart';
+import '../../../constatns/utils.dart';
+import '../../../models/product.dart';
+import '../../../models/user_model.dart';
+import '../../../providers/user_provider.dart';
 
 class AddressServices {
   void saveUserAddress({
@@ -18,7 +20,7 @@ class AddressServices {
 
     try {
       http.Response res = await http.post(
-        Uri.parse('$uri/api/save-user-address'),
+        Uri.parse('$baseUrl/api/save-user-address'),
         headers: {
           'Content-Type': 'application/json; charset=UTF-8',
           'x-auth-token': userProvider.user.token,
@@ -36,7 +38,7 @@ class AddressServices {
             address: jsonDecode(res.body)['address'],
           );
 
-          userProvider.setUserFromModel(user);
+          userProvider.setUserFormModel(user);
         },
       );
     } catch (e) {
@@ -53,7 +55,7 @@ class AddressServices {
     final userProvider = Provider.of<UserProvider>(context, listen: false);
 
     try {
-      http.Response res = await http.post(Uri.parse('$uri/api/order'),
+      http.Response res = await http.post(Uri.parse('$baseUrl/api/order'),
           headers: {
             'Content-Type': 'application/json; charset=UTF-8',
             'x-auth-token': userProvider.user.token,
@@ -72,7 +74,7 @@ class AddressServices {
           User user = userProvider.user.copyWith(
             cart: [],
           );
-          userProvider.setUserFromModel(user);
+          userProvider.setUserFormModel(user);
         },
       );
     } catch (e) {
@@ -89,7 +91,7 @@ class AddressServices {
 
     try {
       http.Response res = await http.post(
-        Uri.parse('$uri/admin/delete-product'),
+        Uri.parse('$baseUrl/admin/delete-product'),
         headers: {
           'Content-Type': 'application/json; charset=UTF-8',
           'x-auth-token': userProvider.user.token,

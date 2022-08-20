@@ -10,6 +10,7 @@ dotenv.config();
 
 authRouter.post("/api/signup", async (req, res) => {
     try {
+        console.log(res.body);
         const { name, email, password } = req.body;
         const existingUser = await User.findOne({ email });
         if (existingUser) {

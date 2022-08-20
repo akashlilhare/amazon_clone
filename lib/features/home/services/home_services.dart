@@ -1,15 +1,15 @@
 import 'dart:convert';
-
+import 'dart:developer';
 
 import 'package:amazon_clone/constatns/global_varibales.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 
 import '../../../constatns/error_handling.dart';
 import '../../../constatns/utils.dart';
+import '../../../models/product.dart';
 import '../../../providers/user_provider.dart';
-import '../../../users/product.dart';
 
 class HomeServices {
   Future<List<Product>> fetchCategoryProducts({
@@ -24,6 +24,8 @@ class HomeServices {
         'Content-Type': 'application/json; charset=UTF-8',
         'x-auth-token': userProvider.user.token,
       });
+
+      log(res.body);
 
       httpErrorHandle(
         response: res,

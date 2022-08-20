@@ -13,7 +13,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../constatns/global_varibales.dart';
 import '../../../constatns/utils.dart';
-import '../../../users/user_model.dart';
+import '../../../models/user_model.dart';
 import '../../home/screens/home_screen.dart';
 
 class AuthService {
@@ -32,6 +32,7 @@ class AuthService {
         address: "",
         type: "",
         token: "",
+        cart: []
       );
       var res = await http.post(Uri.parse("$baseUrl/api/signup"),
           body: user.toJson(),

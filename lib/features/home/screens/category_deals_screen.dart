@@ -1,8 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import '../../../common/loader.dart';
 import '../../../constatns/global_varibales.dart';
-import '../../../users/product.dart';
+import '../../../models/product.dart';
 import '../../product_details/screens/product_details_screen.dart';
 import '../services/home_services.dart';
 
@@ -42,6 +44,8 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(50),
         child: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
           flexibleSpace: Container(
             decoration:  BoxDecoration(
               gradient: GlobalVariables.appBarGradient(opacity: .2),

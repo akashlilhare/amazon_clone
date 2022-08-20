@@ -6,13 +6,13 @@ import 'package:amazon_clone/constatns/error_handling.dart';
 import 'package:amazon_clone/constatns/global_varibales.dart';
 import 'package:amazon_clone/constatns/utils.dart';
 import 'package:amazon_clone/providers/user_provider.dart';
-import 'package:amazon_clone/users/product.dart';
 import 'package:cloudinary_public/cloudinary_public.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
 import '../../../constatns/app_secrate.dart';
+import '../../../models/product.dart';
 
 class AdminServices {
  Future<void> sellProduct({

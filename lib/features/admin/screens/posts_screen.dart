@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../common/loader.dart';
-import '../../../users/product.dart';
-import '../../accounts/widget/single_product.dart';
+import '../../../models/product.dart';
 import '../services/admin_services.dart';
 import '../widgets/admin_product_card.dart';
 import 'add_product_screen.dart';

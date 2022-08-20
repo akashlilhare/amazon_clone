@@ -1,19 +1,23 @@
+import 'dart:developer';
 
+import 'package:amazon_clone/features/product_details/widget/rate_product_dialog.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 
 import '../../../common/custom_button.dart';
+import '../../../common/stars.dart';
 import '../../../constatns/global_varibales.dart';
-import '../../../users/product.dart';
+import '../../../models/product.dart';
+import '../../../providers/user_provider.dart';
 import '../../search/screens/search_screen.dart';
 import '../services/product_details_services.dart';
 
 class ProductDetailScreen extends StatefulWidget {
   static const String routeName = '/product-details';
   final Product product;
+
   const ProductDetailScreen({
     Key? key,
     required this.product,
@@ -32,18 +36,21 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   void initState() {
     super.initState();
-    double totalRating = 0;
-    // for (int i = 0; i < widget.product.rating!.length; i++) {
-    //   totalRating += widget.product.rating![i].rating;
-    //   if (widget.product.rating![i].userId ==
-    //       Provider.of<UserProvider>(context, listen: false).user.id) {
-    //     myRating = widget.product.rating![i].rating;
-    //   }
-    // }
-    //
-    // if (totalRating != 0) {
-    //   avgRating = totalRating / widget.product.rating!.length;
-    // }
+    if (widget.product.ratings != null) {
+      double totalRating = 0;
+      for (int i = 0; i < widget.product.ratings!.length; i++) {
+        log("rating : ${widget.product.ratings![i].rating}");
+        totalRating += widget.product.ratings![i].rating;
+        if (widget.product.ratings![i].userId ==
+            Provider.of<UserProvider>(context, listen: false).user.id) {
+          myRating = widget.product.ratings![i].rating;
+        }
+      }
+
+      if (totalRating != 0) {
+        avgRating = totalRating / widget.product.ratings!.length;
+      }
+    }
   }
 
   void navigateToSearchScreen(String query) {
@@ -51,10 +58,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   }
 
   void addToCart() {
-    // productDetailsServices.addToCart(
-    //   context: context,
-    //   product: widget.product,
-    // );
+    productDetailsServices.addToCart(
+      context: context,
+      product: widget.product,
+    );
   }
 
   @override
@@ -146,9 +153,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   Text(
                     widget.product.id!,
                   ),
-                  // Stars(
-                  //   rating: avgRating,
-                  // ),
+                  Stars(
+                    rating: avgRating,
+                  ),
                 ],
               ),
             ),
@@ -224,7 +231,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 onTap: () {},
               ),
             ),
-            const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.all(10),
               child: CustomButton(
@@ -260,12 +266,12 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 color: GlobalVariables.secondaryColor,
               ),
               onRatingUpdate: (rating) {
-                // var v =  widget.product;
-                // productDetailsServices.rateProduct(
-                //   context: context,
-                //   product:v,
-                //   rating: rating,
-                // );
+                showDialog(
+                    context: context,
+                    builder: (builder) => RateProductDialog(
+                          star: rating,
+                          product: widget.product,
+                        ));
               },
             )
           ],

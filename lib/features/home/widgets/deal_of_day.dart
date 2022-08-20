@@ -1,5 +1,11 @@
 
+import 'package:amazon_clone/constatns/utils.dart';
 import 'package:flutter/material.dart';
+
+import '../../../common/loader.dart';
+import '../../../models/product.dart';
+import '../../product_details/screens/product_details_screen.dart';
+import '../services/home_services.dart';
 
 class DealOfDay extends StatefulWidget {
   const DealOfDay({Key? key}) : super(key: key);
@@ -9,8 +15,8 @@ class DealOfDay extends StatefulWidget {
 }
 
 class _DealOfDayState extends State<DealOfDay> {
-  // Product? product;
-  // final HomeServices homeServices = HomeServices();
+  Product? product;
+  final HomeServices homeServices = HomeServices();
 
   @override
   void initState() {
@@ -19,26 +25,26 @@ class _DealOfDayState extends State<DealOfDay> {
   }
 
   void fetchDealOfDay() async {
-  //  product = await homeServices.fetchDealOfDay(context: context);
+   product = await homeServices.fetchDealOfDay(context: context);
     setState(() {});
   }
 
   void navigateToDetailScreen() {
-    // Navigator.pushNamed(
-    //   context,
-    //   ProductDetailScreen.routeName,
-    //   arguments: product,
-    // );
+    Navigator.pushNamed(
+      context,
+      ProductDetailScreen.routeName,
+      arguments: product,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return
-      // product == null
-      //   ? const Loader()
-      //   : product!.name.isEmpty
-      //       ? const SizedBox()
-      //       :
+      product == null
+        ? const Loader()
+        : product!.name.isEmpty
+            ? const SizedBox()
+            :
     GestureDetector(
                 onTap: navigateToDetailScreen,
                 child: Column(
@@ -52,16 +58,15 @@ class _DealOfDayState extends State<DealOfDay> {
                       ),
                     ),
                     Image.network(
-                      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHByb2ZpbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-                   //   product!.images[0],
+                       product!.images[0],
                       height: 235,
                       fit: BoxFit.fitHeight,
                     ),
                     Container(
                       padding: const EdgeInsets.only(left: 15),
                       alignment: Alignment.topLeft,
-                      child: const Text(
-                        '\$100',
+                      child:  Text(
+                        getPrice(price:  product!.price),
                         style: TextStyle(fontSize: 18),
                       ),
                     ),
@@ -69,28 +74,28 @@ class _DealOfDayState extends State<DealOfDay> {
                       alignment: Alignment.topLeft,
                       padding:
                           const EdgeInsets.only(left: 15, top: 5, right: 40),
-                      child: const Text(
-                        'Rivaan',
+                      child:  Text(
+                        product!.name.toString(),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
                      ),
-                    // SingleChildScrollView(
-                    //   scrollDirection: Axis.horizontal,
-                    //   child: Row(
-                    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //     children: product!.images
-                    //         .map(
-                    //           (e) => Image.network(
-                    //             e,
-                    //             fit: BoxFit.fitWidth,
-                    //             width: 100,
-                    //             height: 100,
-                    //           ),
-                    //         )
-                    //         .toList(),
-                    //   ),
-                    // ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: product!.images
+                            .map(
+                              (e) => Image.network(
+                                e,
+                                fit: BoxFit.fitWidth,
+                                width: 100,
+                                height: 100,
+                              ),
+                            )
+                            .toList(),
+                      ),
+                    ),
                     Container(
                       padding: const EdgeInsets.symmetric(
                         vertical: 15,

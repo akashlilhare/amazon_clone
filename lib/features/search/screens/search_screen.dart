@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 
 import '../../../common/loader.dart';
 import '../../../constatns/global_varibales.dart';
-import '../../../users/product.dart';
+import '../../../models/product.dart';
 import '../../home/widgets/address_box.dart';
+import '../../product_details/screens/product_details_screen.dart';
 import '../services/search_services.dart';
 import '../widget/searched_product.dart';
 
@@ -46,6 +47,7 @@ class _SearchScreenState extends State<SearchScreen> {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
         child: AppBar(
+          backgroundColor: Colors.transparent,
           flexibleSpace: Container(
             decoration:  BoxDecoration(
               gradient: GlobalVariables.appBarGradient(opacity: .2),
@@ -120,18 +122,18 @@ class _SearchScreenState extends State<SearchScreen> {
           : Column(
               children: [
                 const AddressBox(),
-                const SizedBox(height: 10),
                 Expanded(
                   child: ListView.builder(
                     itemCount: products!.length,
+
                     itemBuilder: (context, index) {
                       return GestureDetector(
                         onTap: () {
-                          // Navigator.pushNamed(
-                          //   context,
-                          //   ProductDetailScreen.routeName,
-                          //   arguments: products![index],
-                          // );
+                          Navigator.pushNamed(
+                            context,
+                            ProductDetailScreen.routeName,
+                            arguments: products![index],
+                          );
                         },
                         child: SearchedProduct(
                           product: products![index],
