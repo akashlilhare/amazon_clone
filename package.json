@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "Node Sever for Amazon Clone",
+  "scripts": {
+    "start": "node ../server/index.js",
+    "dev": "node ../server/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "http": "*",
+    "mongoose": "^6.4.4"
+  },
+  "engines": {
+    "node": "16.x"
+  }
+}

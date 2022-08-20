@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-String baseUrl = 'http://192.168.4.227:3000';
+String baseUrl = "https://amazon-sever-app.herokuapp.com";
+    // 'http://192.168.42.227:3000';
 
 class GlobalVariables {
   // COLORS

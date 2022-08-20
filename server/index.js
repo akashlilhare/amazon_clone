@@ -13,7 +13,7 @@ const userRouter = require("./routes/user");
 
 
 //INIT
-const PORT = 3000;
+const PORT = process.env.PORT;
 const app = express();
 const DB = process.env.CONNECTIONSTRING;
 

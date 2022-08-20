@@ -23,6 +23,7 @@ class AuthService {
     required String password,
     required String name,
   }) async {
+
     try {
       User user = User(
         id: "",
@@ -44,12 +45,17 @@ class AuthService {
       httpErrorHandle(
         response: res,
         context: context,
-        onSuccess: () {},
+        onSuccess: () {
+          showSnackBar(
+            context,
+            "Account created Successfully",
+          );
+        },
       );
     } catch (e) {
       showSnackBar(
         context,
-        "Account created Successfully",
+        "Something went wrong",
       );
     }
   }
