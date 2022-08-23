@@ -7,6 +7,7 @@ import '../../search/screens/search_screen.dart';
 import '../widgets/address_box.dart';
 import '../widgets/carousel_image.dart';
 import '../widgets/deal_of_day.dart';
+import '../widgets/featured_product.dart';
 import '../widgets/top_categories.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -101,16 +102,26 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: const [
+          children:  [
             AddressBox(),
             SizedBox(height: 10),
+
             TopCategories(),
-            SizedBox(height: 10),
-            CarouselImage(),
+            SizedBox(height: 8),
+                     CarouselImage(),
+            buildDivider(),
             DealOfDay(),
+            buildDivider(),
+            SizedBox(height: 10),
+            FeaturedProduct(),
           ],
         ),
       ),
+    );
+  }
+  buildDivider(){
+    return Container(
+      height: 12,color: Colors.grey.withOpacity(.15),
     );
   }
 }

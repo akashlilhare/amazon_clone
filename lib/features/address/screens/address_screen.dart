@@ -100,7 +100,7 @@ class _AddressScreenState extends State<AddressScreen> {
     } else if (addressFromProvider.isNotEmpty) {
       addressToBeUsed = addressFromProvider;
     } else {
-      showSnackBar(context, 'ERROR');
+      showSnackBar(context, 'Please enter all the values!');
     }
   }
 
@@ -197,6 +197,7 @@ class _AddressScreenState extends State<AddressScreen> {
                 onPressed: () => payPressed(address),
                 paymentConfigurationAsset: 'gpay.json',
                 onPaymentResult: onGooglePayResult,
+                width: double.infinity,
                 paymentItems: paymentItems,
                 height: 50,
                 style: GooglePayButtonStyle.black,

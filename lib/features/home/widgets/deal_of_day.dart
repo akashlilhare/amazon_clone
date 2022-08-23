@@ -54,7 +54,7 @@ class _DealOfDayState extends State<DealOfDay> {
                       padding: const EdgeInsets.only(left: 10, top: 15),
                       child: const Text(
                         'Deal of the day',
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 18),
                       ),
                     ),
                     Image.network(
@@ -62,12 +62,14 @@ class _DealOfDayState extends State<DealOfDay> {
                       height: 235,
                       fit: BoxFit.fitHeight,
                     ),
+
+                    SizedBox(height: 10,),
                     Container(
                       padding: const EdgeInsets.only(left: 15),
                       alignment: Alignment.topLeft,
                       child:  Text(
                         getPrice(price:  product!.price),
-                        style: TextStyle(fontSize: 18),
+                        style: TextStyle(fontSize: 16),
                       ),
                     ),
                     Container(
@@ -80,22 +82,35 @@ class _DealOfDayState extends State<DealOfDay> {
                         overflow: TextOverflow.ellipsis,
                       ),
                      ),
+                    SizedBox(height: 10,),
+
+                    Container(height: 1,color: Colors.grey.withOpacity(.15),),
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: product!.images
+                        children:product!.images
                             .map(
-                              (e) => Image.network(
-                                e,
-                                fit: BoxFit.fitWidth,
-                                width: 100,
-                                height: 100,
+                              (item) => Row(
+                                children: [
+                                  Image.network(
+
+                                    item,
+                                    fit: BoxFit.fitWidth,
+                                    width: 120,
+                                    height: 100,
+                                  ),
+                                  Container(width: 1,height: 100,color: Colors.grey.withOpacity(.15),)
+                                ],
                               ),
                             )
                             .toList(),
+
+
                       ),
                     ),
+                    Container(height: 1,color: Colors.grey.withOpacity(.15),),
+
                     Container(
                       padding: const EdgeInsets.symmetric(
                         vertical: 15,
