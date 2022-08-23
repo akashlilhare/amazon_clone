@@ -1,16 +1,45 @@
-# amazon_clone
+# Amazon Clone
 
-A new Flutter project.
+Tracker for all ongoing and upcoming coding contests hosted on various platforms.
 
-## Getting Started
+Tech Used `Flutter` `Dart` `Node.js` `Express` `MongoDB`
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Features
+- Email & Password Authentication
+- Persisting Auth State
+- Searching Products
+- Filtering Products (Based on Category)
+- Product Details
+- Rating
+- Getting Deal of the Day
+- Cart
+- Checking out with Google/Apple Pay
+- Viewing My Orders
+- Viewing Order Details & Status
+- Sign Out
+- Admin Panel
+    - Viewing All Products
+    - Adding Products
+    - Deleting Products
+    - Viewing Orders
+    - Changing Order Status
+    - Viewing Total Earnings
+    - Viewing Category Based Earnings (on Graph)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screenshots
+
+<p align="middle">
+  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss1.jpg" width="180" height="360">
+  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss2.jpg" width="180" height="360">
+  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss3.jpg" width="180" height="360">
+  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss4.jpg" width="180" height="360">
+    <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss5.jpg" width="180" height="360">
+  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss6.jpg" width="180" height="360">
+  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss7.jpg" width="180" height="360">
+  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss8.jpg" width="180" height="360">
+</p>
+ 
+
+
