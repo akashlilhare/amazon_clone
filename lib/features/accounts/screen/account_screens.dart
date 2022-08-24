@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../constatns/global_varibales.dart';
 import '../widget/below_app_bar.dart';
+import '../widget/orders.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class AccountScreen extends StatelessWidget {
       //  SizedBox(height: 10),
         TopButtons(),
         SizedBox(height: 20),
-     //   Orders(),
+       Orders(),
       ],
     ),
 

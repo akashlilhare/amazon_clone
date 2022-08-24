@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:pay/pay.dart';
 import 'package:provider/provider.dart';
@@ -68,13 +70,10 @@ class _AddressScreenState extends State<AddressScreen> {
   }
 
   void onGooglePayResult(res) {
-    if (Provider.of<UserProvider>(context, listen: false)
-        .user
-        .address
-        .isEmpty) {
+
       addressServices.saveUserAddress(
           context: context, address: addressToBeUsed);
-    }
+
     addressServices.placeOrder(
       context: context,
       address: addressToBeUsed,
@@ -193,6 +192,7 @@ class _AddressScreenState extends State<AddressScreen> {
                 onPressed: () => payPressed(address),
               ),
               const SizedBox(height: 10),
+
               GooglePayButton(
                 onPressed: () => payPressed(address),
                 paymentConfigurationAsset: 'gpay.json',

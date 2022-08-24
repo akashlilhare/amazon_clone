@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../constatns/global_varibales.dart';
+import '../services/accout_services.dart';
 import 'account_button.dart';
 
 class TopButtons extends StatelessWidget {
@@ -34,7 +35,7 @@ class TopButtons extends StatelessWidget {
               AccountButton(
                 text: 'Log Out',
                 onTap: () {
-                //  AccountServices().logOut(context);
+                 AccountServices().logOut(context);
                 },
               ),
               AccountButton(

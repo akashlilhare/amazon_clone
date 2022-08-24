@@ -2,8 +2,8 @@ import 'package:amazon_clone/constatns/app_secrate.dart';
 import 'package:flutter/material.dart';
 
 String baseUrl =
-    //PrivateKey.herokuUrl;
-     'http://192.168.42.227:3000';
+PrivateKey.herokuUrl;
+
 
 class GlobalVariables {
   // COLORS

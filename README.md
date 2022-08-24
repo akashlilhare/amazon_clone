@@ -30,16 +30,25 @@ Tech Used `Flutter` `Dart` `Node.js` `Express` `MongoDB`
 
 ## Screenshots
 
-<p align="middle">
-  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss1.jpg" width="180" height="360">
-  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss2.jpg" width="180" height="360">
-  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss3.jpg" width="180" height="360">
-  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss4.jpg" width="180" height="360">
-    <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss5.jpg" width="180" height="360">
-  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss6.jpg" width="180" height="360">
-  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss7.jpg" width="180" height="360">
-  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss8.jpg" width="180" height="360">
-</p>
+[comment]: <> (<p align="middle">)
+
+[comment]: <> (  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss1.jpg" width="180" height="360">)
+
+[comment]: <> (  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss2.jpg" width="180" height="360">)
+
+[comment]: <> (  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss3.jpg" width="180" height="360">)
+
+[comment]: <> (  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss4.jpg" width="180" height="360">)
+
+[comment]: <> (  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss5.jpg" width="180" height="360">)
+
+[comment]: <> (  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss6.jpg" width="180" height="360">)
+
+[comment]: <> (  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss7.jpg" width="180" height="360">)
+
+[comment]: <> (  <img src ="https://github.com/akashlilhare/coding_contest_tracker/blob/main/ss/ss8.jpg" width="180" height="360">)
+
+[comment]: <> (</p>)
  
 
 

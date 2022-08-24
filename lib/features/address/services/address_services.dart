@@ -67,6 +67,8 @@ class AddressServices {
             'totalPrice': totalSum,
           }));
 
+      log("order response : ${res.body}");
+
       httpErrorHandle(
         response: res,
         context: context,
@@ -79,7 +81,7 @@ class AddressServices {
         },
       );
     } catch (e) {
-
+      log(e.toString());
       showSnackBar(context, e.toString());
     }
   }
