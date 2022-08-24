@@ -26,7 +26,6 @@ const userSchema = mongoose.Schema({
         type: String,
         validator: {
             validator: (value) => {
-                console.log(value);
                 return value.length > 6;
             },
             message: "Please enter a long password",
