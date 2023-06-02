@@ -1,7 +1,5 @@
 # Amazon Clone
 
-Tracker for all ongoing and upcoming coding contests hosted on various platforms.
-
 Tech Used `Flutter` `Dart` `Node.js` `Express` `MongoDB`
 
 
